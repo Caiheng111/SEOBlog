@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 require('dotenv').config
 //bring routes
 const blogRoutes = require('./routes/blog')
+const authRoutes = require('./routes/auth')
 
 
 //app
@@ -30,7 +31,8 @@ app.use(cookieParser())
 
 
 //routes middleWares
-app.use(blogRoutes)
+app.use('/api', blogRoutes)
+app.use('/api', authRoutes)
 
 
 
