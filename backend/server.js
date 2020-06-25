@@ -3,11 +3,26 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
+const mongoose = require('mongoose');
 require('dotenv').config
+
 
 //app
 
 const app=express()
+
+//db
+
+
+mongoose.connect('mongodb+srv://blogAdmin:123456cyh@seoblog-rx7gu.mongodb.net/seoblog?retryWrites=true&w=majority', 
+{useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false})
+.then(()=>console.log('DB connected'))
+
+
+
+
+
+
 
 //middleWear
 
