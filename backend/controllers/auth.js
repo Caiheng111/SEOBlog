@@ -4,6 +4,7 @@ const shortid = require('shortid')
 
 
 exports.signup=(req,res)=>{
+  
     User.findOne({email:req.body.email}).exec((err, user)=>{
       if(user){
         return res.status(400).json({
@@ -24,7 +25,7 @@ exports.signup=(req,res)=>{
           })
         }
         res.json({
-          message : 'SignUp success! Please Signin'
+          message : 'SignUp success! Plese Signin'
         })
       })
 
