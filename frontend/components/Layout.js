@@ -1,9 +1,14 @@
-import React from 'react'
+import React,{Fragment} from 'react'
 
-export const Layout = () => {
+ const Layout = (props) => {
   return (
-    <div>
+    <Fragment>
+      <h1>Header</h1>
+          {props.children}
+      <h1>Footer</h1>
       
-    </div>
+    </Fragment>
   )
 }
+
+export default Layout
