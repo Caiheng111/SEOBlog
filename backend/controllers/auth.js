@@ -33,6 +33,7 @@ exports.signup=(req,res)=>{
 }
 
 exports.signin = (req, res) => {
+
   const { email, password } = req.body;
   // check if user exist
   User.findOne({ email }).exec((err, user) => {
@@ -48,8 +49,10 @@ exports.signin = (req, res) => {
           });
       }
       // generate a token and send to client
+      // create a token
       const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
 
+     // save the token in cookie 
       res.cookie('token', token, { expiresIn: '1d' });
       const { _id, username, name, email, role } = user;
       return res.json({
