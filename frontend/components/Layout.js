@@ -5,9 +5,7 @@ import Header from './Header'
   return (
     <Fragment>
       <Header/>
-          {props.children}
-      <h1>Footer</h1>
-      
+          {props.children}   
     </Fragment>
   ) 
 }
