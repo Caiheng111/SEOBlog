@@ -3,8 +3,8 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
-const mongoose = require('mongoose');
-require('dotenv').config
+const mongoose = require('mongoose')
+require('dotenv').config()
 //bring routes
 const blogRoutes = require('./routes/blog')
 const authRoutes = require('./routes/auth')
@@ -17,9 +17,12 @@ const app=express()
 //db
 
 
-mongoose.connect('mongodb+srv://blogAdmin:123456cyh@seoblog-rx7gu.mongodb.net/seoblog?retryWrites=true&w=majority', 
+mongoose.connect(process.env.DATABASE_CLOUD, 
 {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false})
 .then(()=>console.log('DB connected'))
+.catch(err=>{
+  console.log(err);
+})
 
 
 
@@ -36,8 +39,6 @@ app.use('/api', authRoutes)
 
 
 
-
-
 //cors
 if(process.env.NODE_ENV === 'development'){
   app.use(cors({origin:`${process.env.CLIENT_URL}`}))
@@ -49,5 +50,5 @@ if(process.env.NODE_ENV === 'development'){
 const port= process.env.PORT || 8000
 app.listen(port,()=>{
   console.log(`Server is running on port ${port}`);
-  
+
 })
