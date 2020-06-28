@@ -13,7 +13,6 @@ import Layout from '../components/Layout'
               <SignupComponent/>
           </div>
         </div>
-
       </Layout>
     </Fragment>
   ) 
