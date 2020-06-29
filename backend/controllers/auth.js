@@ -25,7 +25,7 @@ exports.signup=(req,res)=>{
           })
         }
         res.json({
-          message : 'SignUp success! Plese Signin'
+          message : 'SignUp success! Please Signin'
         })
       })
 
@@ -73,6 +73,5 @@ exports.signout=(req,res)=>{
 
 
 exports.requireSignin = expressJwt({
-
   secret: process.env.JWT_SECRET
 })
