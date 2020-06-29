@@ -26,11 +26,8 @@ import Router from 'next/router';
         if (data.error) {
             setValues({ ...values, error: data.error, loading: false });
         } else {
-
           //save user token in cookie
-
           // save userInfo in localStorage
-
           // authenticate user 
           authenticate(data,()=>{
             Router.push(`/`)
@@ -54,8 +51,6 @@ const showMessage = () => (message ? <div className="alert alert-info">{message}
   const signinForm = () => {
     return (
         <form onSubmit={handleSubmit}>
-    
-
             <div className="form-group">
                 <input
                   value={email}
@@ -77,7 +72,7 @@ const showMessage = () => (message ? <div className="alert alert-info">{message}
             </div>
 
             <div>
-                <button className="btn btn-primary">Signup</button>
+                <button className="btn btn-primary">Sign In</button>
             </div>
         </form>
     );

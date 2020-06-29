@@ -85,7 +85,7 @@ const showMessage = () => (message ? <div className="alert alert-info">{message}
             </div>
 
             <div>
-                <button className="btn btn-primary">Signup</button>
+                <button className="btn btn-primary">Sign Up</button>
             </div>
         </form>
     );

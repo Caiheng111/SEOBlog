@@ -94,7 +94,6 @@ export const isAuth = () => {
     }
 };
   
-
 //signOut
 
 export const signout = next => {

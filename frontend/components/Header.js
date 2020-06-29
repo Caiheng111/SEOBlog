@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {APP_NAME} from  '../config'
 import Link from 'next/link'
+import Router from 'next/router';
 import {signout,isAuth} from '../actions/auth'
 import {
   Collapse,
@@ -11,10 +12,16 @@ import {
   NavLink,
 } from 'reactstrap';
 
-const Header = (props) => {
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+
+  const SignOut=()=>{
+    signout(()=>{
+      Router.push(`/signin`)
+    })
+  }
 
   return (
     <div>
@@ -25,27 +32,32 @@ const Header = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
-              <Link href="/signin">
-                <NavLink>
-                  Signin
-                </NavLink>
-              </Link> 
-            </NavItem>
-            <NavItem>
-              <Link href="/signup">
-                <NavLink>
-                  Signup
-                </NavLink>
-              </Link> 
-            </NavItem>
+
+            {!isAuth() && (
+              <>
+                <NavItem>
+                  <Link href="/signin">
+                    <NavLink>
+                      Signin
+                    </NavLink>
+                  </Link> 
+                </NavItem>
+                <NavItem>
+                  <Link href="/signup">
+                    <NavLink>
+                      Signup
+                    </NavLink>
+                  </Link> 
+                </NavItem>
+              </>
+            )}
+            
+            {/* {JSON.stringify(isAuth())} */}
             {isAuth() && (
               <NavItem>
-                <Link href="/signout">
-                  <NavLink>
+                  <NavLink style={{cursor:'pointer'}} onClick={SignOut}>
                     Sign Out
                   </NavLink>
-                </Link> 
               </NavItem>
             ) }
             
