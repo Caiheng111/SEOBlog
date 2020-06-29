@@ -10,7 +10,6 @@ import Link from 'next/link'
          <Link href="/signup">
            <a>Sign UP</a>
          </Link>
-
       </Layout>
     </div>
   )

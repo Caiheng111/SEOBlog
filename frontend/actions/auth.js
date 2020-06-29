@@ -10,8 +10,10 @@ export const signup = user => {
         },
         body: JSON.stringify(user)
     })
-        .then(response => {
-            return response.json();
+        .then(res => {
+            return res.json();
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log('error'));
 };
+
+
