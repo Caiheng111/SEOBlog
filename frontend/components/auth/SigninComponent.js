@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { signup, signin } from '../../actions/auth';
+import { signup, signin, authenticate } from '../../actions/auth';
 import Router from 'next/router';
 
  const SigninComponent = () => {
@@ -32,9 +32,10 @@ import Router from 'next/router';
           // save userInfo in localStorage
 
           // authenticate user 
-
-
+          authenticate(data,()=>{
             Router.push(`/`)
+          })
+           
         }
     });
 };

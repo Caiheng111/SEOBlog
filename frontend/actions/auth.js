@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import cookie from 'js-cookie';
 import { API } from '../config';
 
 export const signup = user => {
@@ -50,7 +51,7 @@ export const signout = next => {
 
 // set cookie
 
-export const setCookie=(key,value){
+export const setCookie = (key,value) =>{
     if(process.browser){
       cookie.set(key,value,{
         expires :1
@@ -60,7 +61,7 @@ export const setCookie=(key,value){
   
   // remove cookie
   
-  export const removeCookie=(key){
+  export const removeCookie = (key) =>{
     if(process.browser){
       cookie.set(key,{
         expires :1
@@ -68,14 +69,6 @@ export const setCookie=(key,value){
     }
   }
   
-  
-  // get cookie
-  
-  export const getCookie = key => {
-    if (process.browser) {
-        return cookie.get(key);
-    }
-};
   
 // get cookie
 export const getCookie = key => {
@@ -96,7 +89,8 @@ export const removeLocalStorage = key => {
     }
 };
   
-// autheticate user by pass data to cookie and localstorage
+// authenticated user by pass data to cookie and localstorage
+//pass data to cookie and localstorage
 export const authenticate = (data, next) => {
     setCookie('token', data.token);
     setLocalStorage('user', data.user);
