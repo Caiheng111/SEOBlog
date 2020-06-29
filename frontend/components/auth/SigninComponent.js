@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-import { signup,signin } from '../../actions/auth';
+import { signup, signin } from '../../actions/auth';
+import Router from 'next/router';
 
  const SigninComponent = () => {
   const [values, setValues] = useState({
-    name: '',
     email: '',
     password: '',
     error: '',
@@ -13,7 +13,7 @@ import { signup,signin } from '../../actions/auth';
 
   })
 
-  const { name, email, password, error, loading, message, showForm } = values
+  const { email, password, error, loading, message, showForm } = values
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -26,16 +26,15 @@ import { signup,signin } from '../../actions/auth';
         if (data.error) {
             setValues({ ...values, error: data.error, loading: false });
         } else {
-            setValues({
-                ...values,
-                name: '',
-                email: '',
-                password: '',
-                error: '',
-                loading: false,
-                message: data.message,
-                showForm: false
-            });
+
+          //save user token in cookie
+
+          // save userInfo in localStorage
+
+          // authenticate user 
+
+
+            Router.push(`/`)
         }
     });
 };
@@ -54,15 +53,7 @@ const showMessage = () => (message ? <div className="alert alert-info">{message}
   const signinForm = () => {
     return (
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-                <input
-                  value={name}
-                  onChange={handleChange('name')}
-                  type="text"
-                  className="form-control"
-                  placeholder="Type your name"
-                />
-            </div>
+    
 
             <div className="form-group">
                 <input
