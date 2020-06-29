@@ -25,8 +25,6 @@ mongoose.connect(process.env.DATABASE_CLOUD,
 })
 
 
-
-
 //middleWear
 app.use(morgan('dev'))
 app.use(bodyParser.json())
