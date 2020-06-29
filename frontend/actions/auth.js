@@ -33,22 +33,6 @@ export const signin = user => {
         .catch(err => console.log('error'));
 };
 
-
-export const signout = next => {
-    removeCookie('token');
-    removeLocalStorage('user');
-    next();
-
-    return fetch(`${API}/signout`, {
-        method: 'GET'
-    })
-        .then(response => {
-            console.log('signout success');
-        })
-        .catch(err => console.log(err));
-};
-
-
 // set cookie
 
 export const setCookie = (key,value) =>{
@@ -110,6 +94,22 @@ export const isAuth = () => {
     }
 };
   
+
+//signOut
+
+export const signout = next => {
+    removeCookie('token');
+    removeLocalStorage('user');
+    next();
+
+    return fetch(`${API}/signout`, {
+        method: 'GET'
+    })
+        .then(response => {
+            console.log('signOut success');
+        })
+        .catch(err => console.log(err));
+};
 
 
 

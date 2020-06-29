@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {APP_NAME} from  '../config'
 import Link from 'next/link'
+import {signout,isAuth} from '../actions/auth'
 import {
   Collapse,
   Navbar,
@@ -38,6 +39,16 @@ const Header = (props) => {
                 </NavLink>
               </Link> 
             </NavItem>
+            {isAuth() && (
+              <NavItem>
+                <Link href="/signout">
+                  <NavLink>
+                    Sign Out
+                  </NavLink>
+                </Link> 
+              </NavItem>
+            ) }
+            
           </Nav>
         </Collapse>
       </Navbar>
