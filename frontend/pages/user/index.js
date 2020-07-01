@@ -1,11 +1,14 @@
 import React from 'react'
 import Layout from '../../components/Layout'
+import Private from '../../components/auth/Private'
 
  const UserIndex = () => { 
   return (
     <div>
       <Layout>
-         <h1>User dashboard</h1>
+        <Private>
+           <h1>User dashboard</h1>
+        </Private> 
       </Layout>
     </div>
   )
