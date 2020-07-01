@@ -74,6 +74,7 @@ export const removeLocalStorage = key => {
 };
   
 // authenticated user by pass data to cookie and localstorage
+
 //pass data to cookie and localstorage
 export const authenticate = (data, next) => {
     setCookie('token', data.token);
@@ -81,6 +82,7 @@ export const authenticate = (data, next) => {
     next();
 };
 
+//authenticated user
 export const isAuth = () => {
     if (process.browser) {
         const cookieChecked = getCookie('token');
