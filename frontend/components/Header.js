@@ -56,9 +56,29 @@ const Header = () => {
             {/* {JSON.stringify(isAuth())} */}
             {isAuth() && (
               <NavItem>
-                  <NavLink style={{cursor:'pointer'}} onClick={SignOut}>
+                  <NavLink style={{ cursor: 'pointer' }} onClick={SignOut}>
                     Sign Out
                   </NavLink>
+              </NavItem>
+            ) }
+
+            {isAuth() && isAuth().role ===0 &&(
+              <NavItem>
+                <Link href='/user'>
+                <NavLink>
+                    {`${isAuth().name}'s Dashboard`}
+                  </NavLink>
+                </Link>   
+              </NavItem>
+            ) }
+
+            {isAuth() && isAuth().role ===1 &&(
+              <NavItem>
+                <Link href='/admin'>
+                <NavLink>
+                    {`${isAuth().name}'s Dashboard`}
+                  </NavLink>
+                </Link>   
               </NavItem>
             ) }
             
