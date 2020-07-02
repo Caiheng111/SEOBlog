@@ -4,7 +4,8 @@ const slugify = require('slugify')
 
 exports.create = (req, res)=>{
   const {name}=req.body
-  let slug = slugify(name).toLowercase()
+  let slug = slugify(name).toLowerCase()
+
   
   let category = new Category({name, slug})
 

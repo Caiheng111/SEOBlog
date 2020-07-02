@@ -6,7 +6,7 @@ const {create } =require('../controllers/category')
 
 const {runValidation} = require('../validators')
 const {categoryCreateValidator} = require('../validators/category')
-const {requireSignin,adminMiddleware} = require('../validators/auth')
+const {requireSignin,adminMiddleware} = require('../controllers/auth')
 
 router.post('/category',categoryCreateValidator,runValidation,requireSignin,adminMiddleware,create) 
 
