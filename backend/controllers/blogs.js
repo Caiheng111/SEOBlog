@@ -5,9 +5,9 @@ const formidable = require('formidable');
 const slugify = require('slugify');
 const stripHtml = require('string-strip-html');
 const _ = require('lodash');
-const { errorHandler } = require('../helpers/dbErrorHandler');
+const { errorHandler } = require('../helper/dbErrorHandler');
 const fs = require('fs');
-const { smartTrim } = require('../helpers/blog');
+const { smartTrim } = require('../helper/blog');
 
 exports.create = (req, res) => {
     let form = new formidable.IncomingForm();
@@ -19,7 +19,7 @@ exports.create = (req, res) => {
             });
         }
 
-        const { title, body, categories, tags } = fields;
+      const { title, body, categories, tags } = fields;
 
         if(!title || !title.length) {
           return res.status(400).json({

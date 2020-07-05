@@ -7,7 +7,7 @@ const { runValidation } = require('../validators');
 const { categoryCreateValidator } = require('../validators/category');
 const { requireSignin, adminMiddleware } = require('../controllers/auth');
 
-router.get('/', requireSignin, adminMiddleware, create) 
+router.post('/blog', requireSignin, adminMiddleware, create) 
 
 
 module.exports = router
