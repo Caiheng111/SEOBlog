@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 import Router from 'next/router'
-import {isAuth} from '../../actions/auth '
+import {isAuth} from '../../actions/auth'
 
 const Admin = (props) => { 
 
@@ -13,7 +13,7 @@ const Admin = (props) => {
   },[])
   return (
     <div>
-     {propr.children}
+     {props.children}
     </div>
   )
 }
