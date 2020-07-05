@@ -24,7 +24,7 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/signin": [
+    "/admin/crud/category-tag": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]
