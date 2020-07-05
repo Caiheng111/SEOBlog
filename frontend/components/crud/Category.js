@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React,{ useState, useEffect } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { getCookie } from '../../actions/auth';
@@ -71,28 +71,28 @@ const Category = () => {
             if(data.error){
                 setValues({ ...values, error: data.error, success: false });
             }else {
-                setValues({ ...values, error: false, success: false, name: '', removed: !removed, reload: !reload });
+                setValues({ ...values, error: false, success: true, name: '', removed: removed, reload: !reload });
             }
         });
     };
 
-    const handleChange = e => {
+    const handleChange = e =>{
         setValues({ ...values, name: e.target.value, error: false, success: false, removed: '' });
     };
 
-    const showSuccess = () => {
+    const showSuccess = () =>{
         if (success) {
             return <p className="text-success">Category is created</p>;
         }
     };
 
-    const showError = () => {
+    const showError = () =>{
         if (error) {
             return <p className="text-danger">Category already exist</p>;
         }
     };
 
-    const showRemoved = () => {
+    const showRemoved = () =>{
         if (removed) {
             return <p className="text-danger">Category is removed</p>;
         }
@@ -102,7 +102,7 @@ const Category = () => {
         setValues({ ...values, error: false, success: false, removed: '' });
     };
 
-    const newCategoryFom = () => (
+    const newCategoryFom = () =>(
         <form onSubmit={clickSubmit}>
             <div className="form-group">
                 <label className="text-muted">Name</label>
@@ -117,7 +117,7 @@ const Category = () => {
     );
 
     return (
-        <React.Fragment>
+        <>
             {showSuccess()}
             {showError()}
             {showRemoved()}
@@ -125,7 +125,7 @@ const Category = () => {
                 {newCategoryFom()}
                 {showCategories()}
             </div>
-        </React.Fragment>
+        </>
     );
 };
 
