@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../../../components/Layout'
 import Admin from '../../../components/auth/Admin'
 import Category from '../../../components/crud/Category'
+import Tag from '../../../components/crud/Tag'
 
  const CategoryTag = () => { 
   return (
@@ -15,7 +16,7 @@ import Category from '../../../components/crud/Category'
                 <Category/>
               </div>
               <div className="col-md-8 pt-5 pb-5">
-                tag
+                <Tag/>
               </div>
             </div>
           </div>

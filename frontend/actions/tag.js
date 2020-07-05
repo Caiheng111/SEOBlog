@@ -9,7 +9,7 @@ export const create = (tag, token) => {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`
       },
-      body: JSON.stringify(category)
+      body: JSON.stringify(tag)
   })
       .then(response => {
           return response.json();
