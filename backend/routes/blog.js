@@ -1,8 +1,13 @@
 const express= require('express')
 const router= express.Router()
-const {time} =require('../controllers/blogs.js')
+const {create} =require('../controllers/blogs.js')
 
-router.get('/',time) 
+// validators
+const { runValidation } = require('../validators');
+const { categoryCreateValidator } = require('../validators/category');
+const { requireSignin, adminMiddleware } = require('../controllers/auth');
+
+router.get('/', requireSignin, adminMiddleware, create) 
 
 
 module.exports = router
